@@ -1,0 +1,33 @@
+backup:
+
+- notes
+A = Note('A', {'note': 'A', 'alt': 'a'})
+B = Note('B', {'note': 'B', 'alt': 'b'})
+C = Note('C', {'note': 'C', 'alt': 'c'})
+D = Note('D', {'note': 'D', 'alt': 'd'})
+E = Note('E', {'note': 'E', 'alt': 'e'})
+F = Note('F', {'note': 'F', 'alt': 'f'})
+G = Note('G', {'note': 'G', 'alt': 'g'})
+AS = Note('AS', {'note': 'A#', 'alt': 'a*'})
+BS = Note('BS', {'note': 'B#', 'alt': 'b*'})
+CS = Note('CS', {'note': 'C#', 'alt': 'c*'})
+DS = Note('DS', {'note': 'D#', 'alt': 'd*'})
+ES = Note('ES', {'note': 'E#', 'alt': 'e*'})
+FS = Note('FS', {'note': 'F#', 'alt': 'f*'})
+GS = Note('GS', {'note': 'G#', 'alt': 'g*'})
+
+- keys
+a_minor = [A, B, C, D, E, F, G]
+a_major = [A, B, CS, D, E, FS, GS]
+b_minor = [B, CS, D, E, FS, G, A]
+b_major = [B, CS, D, E, FS, GS, AS]
+c_minor = [C, D, DS, F, G, GS, AS]
+c_major = [C, D, E, F, G, A, B]
+d_minor = [D, E, F, G, A, AS, C]
+d_major = [D, E, FS, G, A, B, CS]
+e_minor = [E, FS, G, A, B, C, D]
+e_major = [E, FS, GS, A, B, CS, DS]
+f_minor = [F, G, GS, AS, C, CS, DS]
+f_major = [F, G, A, AS, C, D, E]
+g_minor = [G, A, AS, C, D, DS, F]
+g_major = [G, A, B, C, D, E, FS]		   
