@@ -1,9 +1,9 @@
 class Key:
-    
+
     def __repr__(self):
         return '{scale}'.format(scale = self.scale)
-        
-        
+
+
     def __init__(self, scale):
         self.scale = scale
         self.third = scale[0], scale[2], scale[4]
@@ -11,11 +11,11 @@ class Key:
         self.seventh = scale[0], scale[2], scale[4], scale[6]
         self.sus = scale[0], scale[2], scale[4], scale[3]
         self.sixth = scale[0], scale[2], scale[4], scale[5]
-    
-    
+
+
 SCALE = {
     'a minor': ['A', 'B', 'C', 'D', 'E', 'F', 'G'] ,
-    'a major': ['A', 'B', 'CS', 'D', 'E', 'FS', 'GS'],  
+    'a major': ['A', 'B', 'CS', 'D', 'E', 'FS', 'GS'],
     'b minor': ['B', 'CS', 'D', 'E', 'FS', 'G', 'A'],
     'b major': ['B', 'CS', 'D', 'E', 'FS', 'GS', 'AS'],
     'c minor': ['C', 'D', 'DS', 'F', 'G', 'GS', 'AS'],
@@ -30,15 +30,15 @@ SCALE = {
     'g major': ['G', 'A', 'B', 'C', 'D', 'E', 'FS']
 }
 
-#get chord from user 
+#get chord from user
 scale = input('enter name of chord you want: ').lower().strip()
-#separate segments of chord 
+#separate segments of chord
 chord = scale.split()
 chord.append('')
 scale = Key(SCALE[scale])
-#get extra interval from user 
+#get extra interval from user
 add_tone = input('Enter any add tones : ').lower().strip()
-#DICTIONARY for add tones 
+#DICTIONARY for add tones
 extra_intervals = {'seventh': scale.seventh,
             'sixth': scale.sixth,
             'ninth': scale.ninth,
