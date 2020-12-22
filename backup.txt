@@ -48,8 +48,6 @@ add_tones = {'seventh': Key(scale).seventh,
             'sus': Key(scale).sus
 }    
 
-add_tone = input('\nEnter any add tones: ').lower().strip()
-
 keys_list = [a_minor, a_major, b_minor, b_major, c_minor, c_major, d_minor, d_major, e_minor, e_major, f_minor, f_major, g_minor, g_major, g_major]
 
 for note in note_list:
