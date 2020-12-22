@@ -31,13 +31,13 @@ SCALE = {
 }
 
 #get chord from user 
-scale = input('enter name of chord you want: ').lower().strip()
+scale = input('Enter the name of the chord you want: ').lower().strip()
 #separate segments of chord 
 chord = scale.split()
 chord.append('')
 scale = Key(SCALE[scale])
 #get extra interval from user 
-add_tone = input('Enter any add tones : ').lower().strip()
+add_tone = input('\nEnter any add tones: ').lower().strip()
 #DICTIONARY for add tones 
 extra_intervals = {'seventh': scale.seventh,
             'sixth': scale.sixth,
