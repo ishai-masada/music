@@ -10,7 +10,12 @@ class Key:
         self.seventh = scale[0], scale[2], scale[4], scale[6]
         self.sus = scale[0], scale[2], scale[4], scale[3]
         self.sixth = scale[0], scale[2], scale[4], scale[5]
+    
+    
+#def extra_int(self, triad):
 
+
+        
 SCALE = {
     'a minor': ['A', 'B', 'C', 'D', 'E', 'F', 'G'] ,
     'a major': ['A', 'B', 'CS', 'D', 'E', 'FS', 'GS'],  
@@ -28,16 +33,26 @@ SCALE = {
     'g major': ['G', 'A', 'B', 'C', 'D', 'E', 'FS']
 }
 
+#get chord from user 
 scale = input('enter name of chord you want: ').lower().strip()
+#separate segments of chord 
+chord = scale.split()
+chord.append('')
 scale = Key(SCALE[scale])
-print(scale.third)
 
-#if scale == scale + 'seventh':
- #   print(scale.seventh)
-    
-#if add_tone == '7' or 'SEVEN' or 'SEVENTH':
-#   chord = Key(key)
-#   print(chord.seventh)    
-#if add_tone == 'sixth':
-#   chord = Key(key)
-#   print(chord.sixth)
+add_tone = input('Enter any add tones : ').lower().strip()
+
+extra_intervals = {'seventh': scale.seventh,
+            'sixth': scale.sixth,
+            'ninth': scale.ninth,
+            'sus': scale.sus
+}
+
+add_tone = extra_intervals[add_tone]
+print(add_tone)
+
+
+#print(scale.third)
+
+#triad = chord(scale)
+#print(scale.third)
