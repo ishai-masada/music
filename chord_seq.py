@@ -1,8 +1,6 @@
 class Key:
-
     def __repr__(self):
         return '{scale}'.format(scale = self.scale)
-
 
     def __init__(self, scale):
         self.scale = scale
@@ -11,7 +9,6 @@ class Key:
         self.seventh = scale[0], scale[2], scale[4], scale[6]
         self.sus = scale[0], scale[2], scale[4], scale[3]
         self.sixth = scale[0], scale[2], scale[4], scale[5]
-
 
 SCALE = {
     'a minor': ['A', 'B', 'C', 'D', 'E', 'F', 'G'] ,
