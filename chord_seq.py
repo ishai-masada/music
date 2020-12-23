@@ -12,6 +12,7 @@ class Key:
 
 SCALE = {
     'a minor': ['A', 'B', 'C', 'D', 'E', 'F', 'G'] ,
+
     'a major': ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
     'b minor': ['B', 'C#', 'D', 'E', 'F#', 'G', 'A'],
     'b major': ['B', 'C#', 'D', 'E', 'F#', 'G#', 'A#'],
