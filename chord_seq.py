@@ -30,24 +30,42 @@ SCALE = {
     'g major': ['G', 'A', 'B', 'C', 'D', 'E', 'F#']
 }
 
-#get chord from user 
 scale = input('Enter the name of the chord you want: ').lower().strip().split()
-chord, add_tone = ' '.join(scale[:2]), scale[2:]
-#get scale from SCALE dictionary 
-scale = Key(SCALE[chord])
-#DICTIONARY for add tones 
-extra_intervals = {'seventh': scale.seventh,
-            'sixth': scale.sixth,
-            'ninth': scale.ninth,
-            'sus': scale.sus
-}
-#adding add tone into chord
-if add_tone:
-    # Check if additional tone is valid
-    if add_tone[0] in extra_intervals:
-        print(', '.join(extra_intervals[add_tone[0]]))
+
+def chord_generator(scale):
+    chord, add_tone = ' '.join(scale[:2]), scale[2:]
+    #get scale from SCALE dictionary 
+    scale = Key(SCALE[chord])
+    #DICTIONARY for add tones 
+    extra_intervals = {'seventh': scale.seventh,
+                'sixth': scale.sixth,
+                'ninth': scale.ninth,
+                'sus': scale.sus
+    }
+    #adding add tone into chord
+    if add_tone:
+        # Check if additional tone is valid
+        if add_tone[0] in extra_intervals:
+            print(', '.join(extra_intervals[add_tone[0]]))
+        else:
+            print('Unrecognized additional tone "{}".'.format(add_tone[0]))
     else:
-        print('Unrecognized additional tone "{}".'.format(add_tone[0]))
-else:
-    # Print regular third
-    print(', '.join(scale.third))
+        # Print regular third
+        print(', '.join(scale.third))
+       
+
+    
+chord_generator(scale)
+
+#progression = input('Enter the chord sequence you want: ').lower().strip()
+#print(progression)
+#for x in progression:
+#join two elements
+#    x = ' '.join(x, progression[x + 1])
+#    if SCALE[x]:
+#        x = SCALE[' '.join(x, progression[x + 1], progression[x + 2])]
+#        if SCALE[x]:
+#            chord_generator(x)
+#        else:
+#            x = ' '.join(x, progression[x + 1])
+#            chord_generator(x)
