@@ -12,7 +12,6 @@ class Key:
 
 SCALE = {
     'a minor': ['A', 'B', 'C', 'D', 'E', 'F', 'G'] ,
-
     'a major': ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
     'b minor': ['B', 'C#', 'D', 'E', 'F#', 'G', 'A'],
     'b major': ['B', 'C#', 'D', 'E', 'F#', 'G#', 'A#'],
@@ -32,19 +31,22 @@ SCALE = {
 def chord_generator(chord_args):
     # Separate chord from additional tone
     chord, add_tone = ' '.join(chord_args[:2]), chord_args[2:]
-    scale = Key(SCALE[chord])
-    extra_intervals = {'seventh': scale.seventh,
-                       'sixth': scale.sixth,
-                       'ninth': scale.ninth,
-                       'sus': scale.sus}
-    # Check if an additional tone was provided
-    if add_tone:
-        # Check if additional tone is valid
-        if add_tone[0] in extra_intervals:
-            print(', '.join(extra_intervals[add_tone[0]]))
-        else:
-            # Print regular third
-            print(', '.join(scale.third))
+    if chord in SCALE:
+        scale = Key(SCALE[chord])
+        extra_intervals = {'seventh': scale.seventh,
+                           'sixth': scale.sixth,
+                           'ninth': scale.ninth,
+                           'sus': scale.sus}
+        # Check if an additional tone was provided
+        if add_tone:
+            # Check if additional tone is valid
+            if add_tone[0] in extra_intervals:
+                print(', '.join(extra_intervals[add_tone[0]]))
+            else:
+                # Print regular third
+                print(', '.join(scale.third))
+    else:
+        print("Chord not valid.")
        
 
 scale = input('Enter the name of the chord you want: ').lower().strip().split()
