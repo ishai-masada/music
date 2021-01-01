@@ -50,9 +50,11 @@ def chord_generator(chord_args):
     else:
         print("Chord not valid.")
        
-
-scale = sys.argv[1:]
-#scale = input('Enter the name of the chord you want: ').lower().strip().split()
+if sys.argv[1:]:
+    scale = sys.argv[1:]
+    scale = [thing.lower() for thing in scale]
+else:
+    scale = input('Enter the name of the chord you want: ').lower().strip().split()
 chord_generator(scale)
 
 #progression = input('Enter the chord sequence you want: ').lower().strip()
