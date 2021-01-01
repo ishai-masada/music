@@ -1,3 +1,5 @@
+import sys
+
 class Key:
     def __repr__(self):
         return '{scale}'.format(scale = self.scale)
@@ -42,14 +44,15 @@ def chord_generator(chord_args):
             # Check if additional tone is valid
             if add_tone[0] in extra_intervals:
                 print(', '.join(extra_intervals[add_tone[0]]))
-            else:
-                # Print regular third
-                print(', '.join(scale.third))
+                return
+        # Print regular third
+        print(', '.join(scale.third))
     else:
         print("Chord not valid.")
        
 
-scale = input('Enter the name of the chord you want: ').lower().strip().split()
+scale = sys.argv[1:]
+#scale = input('Enter the name of the chord you want: ').lower().strip().split()
 chord_generator(scale)
 
 #progression = input('Enter the chord sequence you want: ').lower().strip()
