@@ -1,9 +1,7 @@
 class Key:
-    
     def __repr__(self):
         return '{scale}'.format(scale = self.scale)
-        
-        
+
     def __init__(self, scale):
         self.scale = scale
         self.third = scale[0], scale[2], scale[4]
@@ -11,14 +9,14 @@ class Key:
         self.seventh = scale[0], scale[2], scale[4], scale[6]
         self.sus = scale[0], scale[2], scale[4], scale[3]
         self.sixth = scale[0], scale[2], scale[4], scale[5]
-    
-    
+
 SCALE = {
     'a minor': ['A', 'B', 'C', 'D', 'E', 'F', 'G'] ,
-    'a major': ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],  
+
+    'a major': ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
     'b minor': ['B', 'C#', 'D', 'E', 'F#', 'G', 'A'],
-    'b major': ['B', 'C#' 'D', 'E', 'F#', 'G#', 'A#'],
-    'c minor': ['C', 'D', 'D#', 'F', 'G', 'GS', 'AS#'],
+    'b major': ['B', 'C#', 'D', 'E', 'F#', 'G#', 'A#'],
+    'c minor': ['C', 'D', 'D#', 'F', 'G', 'G#', 'A#'],
     'c major': ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
     'd minor': ['D', 'E', 'F', 'G', 'A', 'A#', 'C'],
     'd major': ['D', 'E', 'F#', 'G', 'A', 'B', 'C#'],
@@ -30,31 +28,26 @@ SCALE = {
     'g major': ['G', 'A', 'B', 'C', 'D', 'E', 'F#']
 }
 
-scale = input('Enter the name of the chord you want: ').lower().strip().split()
 
-def chord_generator(scale):
-    chord, add_tone = ' '.join(scale[:2]), scale[2:]
-    #get scale from SCALE dictionary 
+def chord_generator(chord_args):
+    # Separate chord from additional tone
+    chord, add_tone = ' '.join(chord_args[:2]), chord_args[2:]
     scale = Key(SCALE[chord])
-    #DICTIONARY for add tones 
     extra_intervals = {'seventh': scale.seventh,
-                'sixth': scale.sixth,
-                'ninth': scale.ninth,
-                'sus': scale.sus
-    }
-    #adding add tone into chord
+                       'sixth': scale.sixth,
+                       'ninth': scale.ninth,
+                       'sus': scale.sus}
+    # Check if an additional tone was provided
     if add_tone:
         # Check if additional tone is valid
         if add_tone[0] in extra_intervals:
             print(', '.join(extra_intervals[add_tone[0]]))
         else:
-            print('Unrecognized additional tone "{}".'.format(add_tone[0]))
-    else:
-        # Print regular third
-        print(', '.join(scale.third))
+            # Print regular third
+            print(', '.join(scale.third))
        
 
-    
+scale = input('Enter the name of the chord you want: ').lower().strip().split()
 chord_generator(scale)
 
 #progression = input('Enter the chord sequence you want: ').lower().strip()
