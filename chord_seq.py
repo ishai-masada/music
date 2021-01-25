@@ -50,22 +50,24 @@ def chord_generator(chord_args):
     else:
         print("Chord not valid.")
        
-if sys.argv[1:]:
-    scale = sys.argv[1:]
-    scale = [thing.lower() for thing in scale]
-else:
-    scale = input('Enter the name of the chord you want: ').lower().strip().split()
-chord_generator(scale)
+#if sys.argv[1:]:
+#    scale = sys.argv[1:]
+#    scale = [thing.lower() for thing in scale]
+#else:
+#    scale = input('Enter the name of the chord you want: ').lower().strip().split()
+#chord_generator(scale)
 
-#progression = input('Enter the chord sequence you want: ').lower().strip()
-#print(progression)
-#for x in progression:
-#join two elements
-#    x = ' '.join(x, progression[x + 1])
-#    if SCALE[x]:
-#        x = SCALE[' '.join(x, progression[x + 1], progression[x + 2])]
-#        if SCALE[x]:
-#            chord_generator(x)
-#        else:
-#            x = ' '.join(x, progression[x + 1])
-#            chord_generator(x)
+#create progression and join every two elements
+progression = input('Enter the chord sequence you want: ').lower().strip().split()
+for x in progression:
+    list_name = [x, progression[progression.index(x) + 1]]
+    triad = ' '.join(list_name)
+    print(triad)
+
+#if SCALE[triad]:
+#    y = SCALE[' '.join(x, progression[x + 1], progression[x + 2])]
+#    if SCALE[y]:
+#        chord_generator(y)
+#    else:
+#        y = ' '.join(x, progression[x + 1])
+#        chord_generator(y)
